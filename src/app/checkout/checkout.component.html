@@ -1,0 +1,133 @@
+<h2 style="text-align: center;">Checkout Form</h2>
+<div class="row">
+  <div class="col-75">
+    <div class="container">
+      <form #checkoutform="ngForm">
+        <div class="row">
+          <div class="col-50">
+            <h3>Billing Address</h3>
+            <label for="fullname"><i class="fa fa-user"></i> Full Name</label>
+            <input type="text" class="form-control" id="fullname" name="fullname" placeholder="John M. Doe" required [formControl]="fullname">
+            <div class="form-text text-danger" *ngIf="fullname.errors?.['required'] && (fullname.touched || fullname.dirty)">
+              Full Name is Required.
+           </div>
+           <div class="form-text text-danger" *ngIf="fullname.errors?.['minlength'] || fullname.errors?.['maxlength']">
+            Full Name is too short.
+           </div>
+           <div class="form-text text-danger" *ngIf="fullname.errors?.['pattern'] && (fullname.dirty || fullname.touched)">
+            Full Name is should start with Alphabet.
+           </div>
+
+            <label for="email"><i class="fa fa-envelope"></i> Email</label>
+            <input type="text" class="form-control" id="email" name="email" placeholder="john@example.com" required [formControl]="email">
+            <div class="form-text text-danger" *ngIf="email.errors?.['required'] && (email.dirty || email.touched)">
+              Email is Required
+           </div>
+           <div class="form-text text-danger" *ngIf="email.errors?.['email'] && (email.dirty || email.touched)">
+             Email is Invalid.
+          </div>
+
+            <label for="address"><i class="fa fa-address-card-o"></i> Address</label>
+            <input type="text" class="form-control" id="address" name="address" placeholder="542 W. 15th Street" required [formControl]="address">
+            <div class="form-text text-danger" *ngIf="address.errors?.['required'] && (address.touched || address.dirty)">
+              Address is Required.
+           </div>
+           <div class="form-text text-danger" *ngIf="address.errors?.['minlength'] || address.errors?.['maxlength']">
+            Address is too short.
+           </div>
+           <div class="form-text text-danger" *ngIf="address.errors?.['pattern'] && (address.dirty || address.touched)">
+            Address is should start with Alphabet.
+           </div>
+
+            
+            <label for="city"><i class="fa fa-institution"></i> City</label>
+            <input type="text" class="form-control" id="city" name="city" placeholder="New York" required [formControl]="city">
+            <div class="form-text text-danger" *ngIf="city.errors?.['required'] && (city.touched || city.dirty)">
+              City is Required.
+           </div>
+           <div class="form-text text-danger" *ngIf="city.errors?.['minlength'] || city.errors?.['maxlength']">
+            City is too short.
+           </div>
+           <div class="form-text text-danger" *ngIf="city.errors?.['pattern'] && (city.dirty || city.touched)">
+           City is should start with Alphabet.
+           </div>
+
+            <label for="mobile"><i class="fa fa-phone"></i> Mobile</label>
+            <input type="text" class="form-control" id="mobile" name="mobile" placeholder="9076543320" required [formControl]="mobile">
+            <div class="form-text text-danger" *ngIf="mobile.errors?.['required'] && (mobile.dirty || mobile.touched)">
+              Mobile number is Required
+           </div>
+           <div class="form-text text-danger" *ngIf="mobile.errors?.['pattern'] && (mobile.dirty || mobile.touched)">
+            Mobile number is Invalid.
+         </div>
+         <div class="form-text text-danger" *ngIf="mobile.errors?.['minlength'] && (mobile.dirty || mobile.touched)">
+          Mobile number is short.
+       </div>
+       <div class="form-text text-danger" *ngIf="mobile.errors?.['maxlength'] && (mobile.dirty || mobile.touched)">
+        Number is long.
+     </div>
+
+            <div class="row">
+              <div class="col-50">
+                <label for="state">State</label>
+                <input type="text" class="form-control" id="state" name="state" placeholder="NY" required [formControl]="state">
+                <div class="form-text text-danger" *ngIf="state.errors?.['required'] && (state.touched || state.dirty)">
+                  State is Required.
+               </div>
+               <div class="form-text text-danger" *ngIf="state.errors?.['minlength'] || state.errors?.['maxlength']">
+                State is too short.
+               </div>
+               <div class="form-text text-danger" *ngIf="state.errors?.['pattern'] && (state.dirty || state.touched)">
+                State is should start with Alphabet.
+               </div>
+              </div>
+
+              <div class="col-50">
+                <label for="zip">Zip</label>
+                <input type="text" class="form-control" id="zip" name="zip" placeholder="10001" required [formControl]="zip">
+                <div class="form-text text-danger" *ngIf="zip.errors?.['required'] && (zip.dirty || zip.touched)">
+                  Number is Required
+               </div>
+               <div class="form-text text-danger" *ngIf="zip.errors?.['pattern'] && (zip.dirty || zip.touched)">
+                Number is Invalid.
+             </div>
+             <div class="form-text text-danger" *ngIf="zip.errors?.['minlength'] && (zip.dirty || zip.touched)">
+              Number is short.
+           </div>
+           <div class="form-text text-danger" *ngIf="zip.errors?.['maxlength'] && (zip.dirty || zip.touched)">
+            Number is long.
+         </div>
+              </div>
+            </div>
+          </div> 
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="col-25">
+    <div class="container">
+      <h4>Your Order <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <span>{{totalItem}}</span></span></h4>
+  
+      <ng-container  *ngFor="let dt of famous; let i =index">
+        <div class="card-image">
+        <img style="width: 100px;
+            object-fit: fill;
+            border-radius: 10px;" src="{{dt.image_url}}">
+          
+            </div>
+            <div class="card-image">
+              <strong class="card-price">{{dt.price*dt.quantity | currency :'INR'}}</strong>
+            </div>
+            <div class="card-details">
+              
+                <p><span class="card-name"><strong>{{dt.food_name}}</strong></span></p>
+            
+       </div>
+      
+    </ng-container>         
+          <hr>
+          <p>Total <span class="price" style="color:black"><b><strong>{{grandTotal | currency :'INR'}}</strong></b></span></p>
+          <button (click)="save();" class="btn" [disabled]="!checkoutForm.valid">Place Order</button>      
+    </div>
+  </div>
+</div>

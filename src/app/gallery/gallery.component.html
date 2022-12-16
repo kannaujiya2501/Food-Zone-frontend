@@ -1,0 +1,13 @@
+<div class="container" mt-4 mb-4>
+    <h1 class="text-center"><MENU></MENU><span class="highlight">Gallery</span></h1>
+    <div class="row">
+      <ng-container *ngFor="let dt of result | filter:searchKey:'food_name'">
+        <div class="card col-md-3"> 
+             <img src="{{dt.image_url}}">
+            <p><strong>{{dt.food_name}}</strong></p>
+            </div>
+      </ng-container>
+    
+    </div>
+    </div>
+    

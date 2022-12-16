@@ -1,0 +1,62 @@
+
+<ng-container >
+    <div class="container" style="margin-top: 25px;">
+        <div class="card-table">
+            <div class="cart-dish">
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                            <th> Sno</th>
+                            <th>Dish Name</th>
+                            <th>Dish Image</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let dt of famous; let i =index">
+                            <td>{{i+1}}</td>
+                            <td>{{dt.food_name}}</td>
+                            <td><img style="width: 100px; height: 60px;" src="{{dt.image_url}}"></td>
+                            <td>{{dt.price}}</td>
+                            <div class="qantity-container">
+                                <div class="quantity-button">
+    
+                                   
+                                    <button style="margin-top: 5px;" class="btn" id="plus" type="button" (click)="inc( dt)"><b><i class="fa fa-plus">+</i></b></button>
+                                    <span>{{dt.quantity}}</span>
+                                    <button style="margin-top: 5px;" class="btn" id="minus" type="button" (click)="dec(dt)"><b><i class="fa fa-minus">-</i></b></button>
+                                
+    
+                                 </div>
+                                </div>
+                            
+                            
+                           
+                            <!-- <td>{{dt.Quantity}}</td> -->
+    
+                            <td>{{dt.price*dt.quantity }}</td>
+                            <td>
+                                <!-- <button (click)="removeItem(dt)" class="btn btn-danger"><span class='bi bi-trash' style='color: red'></span></button> -->
+                                <button style="width: 70px; height: 30px;" (click)="removeItem(dt); calculatePrice();" class="btn btn-danger delete-cart-item"><span class="fa fa-trash"></span>Delete</button>
+                            </td>
+                        
+                        </tr>
+                        <tr>
+                            <td colspan="4"></td>
+                            <td><button (click)="emptycart()" class="btn.btn-danger">Empty cart</button></td>
+                            <td><button routerLink="/famous-dishes" class="btn.btn-primary">shop more</button></td>
+                            <td><button class="btn.btn-success" routerLink="/checkout">checkout</button></td>
+                            <td><strong>Grand Total:{{calcGrandTotal()}}</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    
+    </div>
+    </ng-container>
+    

@@ -1,0 +1,60 @@
+.navbar {
+    background-color: #00121b;
+}
+.nav-item dropdown input:hover{
+    color: white;
+}
+.cover {
+    background: url('src/assets/images/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+}
+.food{
+    color: white;
+    font-size: larger;
+}
+
+.vh-80 {
+    min-height: 84vh;
+}
+
+.sign__container {
+    width: 60%;
+}
+
+@media (min-width: 1200px) {
+    .sign__container {
+        width: 350px;
+    }
+    .subtitle-mb{
+        margin-bottom: 5.5rem!important;
+    }
+}
+
+/* header cart */
+.header-cart {
+    position:relative;
+      display:inline-block;
+    margin-right:40px;
+  }
+  
+  .header-cart img {
+          width: 40px;
+          background-color: #00121b;
+      }
+  
+  .header-cart span {
+    background-color: #f8aa02;
+    color: #fff;
+    position: absolute;
+    width: 24px;
+    height: 20px;
+    top: -5px;
+    right: -15px;
+    text-align: center;
+    font-size: 12px;
+    padding-top: 6px;
+    border-radius:100%;
+  }

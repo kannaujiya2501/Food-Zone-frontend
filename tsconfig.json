@@ -1,0 +1,55 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "paths":{
+      "path":[
+         "./node_modules/browserify-zlib",
+         "./node_modules/querystring-es3",
+         "./node_modules/path-browserify",
+         "./node_modules/crypto-browserify",
+         "./node_modules/stream-browserify",
+         "./node_modules/stream-http",
+         "./node_modules/url",
+      
+      ]
+      
+      },
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2017",
+    "module": "es2020",
+    "lib": [
+      "es2020",
+      "dom"
+    ],
+    
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true,
+    "allowedCommonJsDependencies": [
+      "crypto-browserify",
+      "browserify-zlib",
+      "querystring-es3",
+      "path-browserify",
+      "stream-browserify",
+      "stream-http",
+      "url",
+    ],
+  }
+}

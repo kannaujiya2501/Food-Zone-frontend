@@ -1,0 +1,15 @@
+<div class="container" mt-4 mb-4>
+    <h1 class="text-center">Veg<span class="highlight">Dishes</span></h1>
+    <div class="row">
+      <ng-container *ngFor="let dt of result | filter:searchKey:'food_name'">
+        <div class="card col-md-3"> 
+             <img src="{{dt.image_url}}" style="height:150px; width: 180px; margin-top: 10px; margin-left: 40px;">
+            <p style="text-align: center;"><strong>{{dt.food_name}}</strong></p>
+            <p style="text-align: center;"><b>{{dt.price | currency:'INR'}}</b></p>
+            <button style="margin-bottom: 20px;" class="btn btn-warning"(click)=addtocart(dt) >Order Now</button>
+            </div>
+      </ng-container>
+    
+    </div>
+    </div>
+    

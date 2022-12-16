@@ -1,0 +1,133 @@
+<h3 style="text-align:center;">Admin Panel</h3>
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" style="margin-left: 1100px;">ADD Dish</button>
+
+<table id="customers">
+    <thead>
+        <tr>
+            <th> Sno</th>
+            <th>Dish Name</th>
+            <th>Dish Image</th>
+            <th>Price</th>
+            <th>Action</th>
+            </tr>
+        </thead>
+            <tbody>
+                <tr *ngFor="let dt of famous; let i =index">
+                    <td>{{i+1}}</td>
+                    <td>{{dt.food_name}}</td>
+                    <td><img style="width: 110px;" src="{{dt.image_url}}"></td>
+                    <td>{{dt.price | currency :'INR'}}</td>
+                    <td>
+                        <button style="width: 80px;" (click)="deleteFood(dt)" class="btn btn-danger delete-cart-item"><span class="fa fa-trash"></span>Delete</button>
+                        &nbsp;
+                        &nbsp;
+                        <button style="width: 70px;" class="btn btn-primary delete-cart-item" data-toggle="modal" data-target="#myModalEdit" >Edit</button>
+                    </td>
+                    </tbody>
+  </table>
+  <div class="container">
+    
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">ADD Dish</h4>
+          </div>
+          <div class="modal-body">
+            <form >
+                <div class="mb-3">
+                   <label for="text" class="form-label">Name:</label>
+                   <input type="text" [formControl]="food_name" id="food_name" name="food_name" />
+                </div>
+                 <p>
+                   <label for="text">price:</label>
+                   <input type="text" [formControl] ="price" id="price" name="price" />
+                 </p>
+                 <p>
+                    <label for="text">image_url:</label>
+                    <input type="text" [formControl] ="image_url" id="image_url" name="image_url"/>
+                  </p>
+                 
+               </form>
+          </div>
+          <div class="modal-footer">
+            <!-- <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button> -->
+        <button type="button" class="btn btn-primary" (click)="save()" >save</button> 
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Upade data -->
+<div class="modal fade" id="myModalEdit" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Edit Dish</h4>
+        </div>
+        <div class="modal-body">
+          <form >
+              <div class="mb-3">
+                 <label for="text" class="form-label">Name:</label>
+                 <input type="text" [formControl]="food_name" id="textname" />
+              </div>
+               <p>
+                 <label for="text">price:</label>
+                 <input type="text" [formControl] ="price" id="textprice" />
+               </p>
+               <p>
+                  <label for="text">image_url:</label>
+                  <input type="text" [formControl] ="image_url" id="textprice" />
+                </p>
+               
+             </form>
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button> -->
+      <button type="button" class="btn btn-primary">Update</button> 
+      </div>
+      </div>
+    </div>
+</div>
+
+  <!-- Delete Modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModalDelete" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Delete Dish</h4>
+      </div>
+      <div class="modal-body">
+        <form >
+            <div class="mb-3">
+               <label for="text" class="form-label">Name:</label>
+               <input type="text" [formControl]="food_name" id="textname" />
+            </div>
+             <p>
+               <label for="text">price:</label>
+               <input type="text" [formControl] ="price" id="textprice" />
+             </p>
+             <p>
+                <label for="text">image_url:</label>
+                <input type="text" [formControl] ="image_url" id="textprice" />
+              </p>
+             
+           </form>
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button> -->
+    <button type="button" class="btn btn-primary"(click)="save()" >Delete</button> 
+    </div>
+    </div>
+  </div>
+</div>
+
+  

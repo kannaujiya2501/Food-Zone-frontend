@@ -1,0 +1,28 @@
+<div style="align-items: center;" class="container">
+  <form class="border p-3 rounded-3">
+    <div class="row g-0">
+      <div class="col text-center p-2 mb-3 bg-light">
+          <h3 class="fs-3">Admin Login</h3>
+      </div>
+    </div>
+    <div style="padding-left: 25px;" class="row">
+          <div class="col mb-3">
+            <label for="email" class="form-label">Email :</label>
+            <input type="email" class="form-Control" name="email" [(ngModel)]="email"> 
+    </div>
+    </div>
+    <div class="row">
+      <div class="col mb-3">
+        <label for="password" class="form-label">Password :</label>
+        <input type="password" class="form-Control" name="password" [(ngModel)]="password"> 
+  </div>
+  </div>
+    <div class="row">
+      <div class="col-3 offset-4">
+        <div class="d-grid" style="margin: 20px;">
+          <button type="submit" class="btn btn-primary" (click)="logIn()">Submit</button>
+        </div>
+      </div>
+  </div>  
+  </form>
+  </div>
